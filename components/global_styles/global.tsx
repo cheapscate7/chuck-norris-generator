@@ -28,6 +28,7 @@ STYLES
         transition: background-color 0.2s ease-in-out;
         ${({ theme }) => css`
             background-color: ${theme.colors.background};
+            color: ${theme.colors.foreground};
         `};
     }
     

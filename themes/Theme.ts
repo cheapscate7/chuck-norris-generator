@@ -20,8 +20,8 @@ const Theme: Theme = {
         tiny: '0.5rem',
         small: '1.2rem',
         medium: '2rem',
-        large: '3rem',
-        huge: '5rem',
+        large: '2.5rem',
+        huge: '3rem',
     },
 };
 
