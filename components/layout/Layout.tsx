@@ -3,6 +3,8 @@ import Head from 'next/head';
 import PageHeader from './PageHeader';
 import PageContent from './PageContent';
 import Title from './Title';
+import Navigation from './Navigation';
+import NavigationItem from './NavigationItem';
 
 interface ILayoutProps {
     title: string;
@@ -27,6 +29,10 @@ const Layout: React.FC<ILayoutProps> = ({ title, description, children }) => {
                 <Title>
                     <h1>Chuck Norris Image Macros</h1>
                 </Title>
+                <Navigation>
+                    <NavigationItem>Home</NavigationItem>
+                    <NavigationItem>Help</NavigationItem>
+                </Navigation>
             </PageHeader>
             <PageContent>{children}</PageContent>
         </>
