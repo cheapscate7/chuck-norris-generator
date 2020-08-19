@@ -1,25 +1,43 @@
 {
-  "name": "chuck-norris-generator",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/cheapscate7/chuck-norris-generator.git",
-  "author": "Matthew Badcock <matthewlisterb@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@types/next": "^9.0.0",
-    "@types/react": "^16.9.46",
-    "@zeit/next-typescript": "^1.1.1",
-    "next": "^9.5.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "devDependencies": {
-    "@types/node": "^14.6.0",
-    "typescript": "^3.9.7"
-  }
+    "name": "chuck-norris-generator",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/cheapscate7/chuck-norris-generator.git",
+    "author": "Matthew Badcock <matthewlisterb@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint --ext .ts,.tsx",
+        "lint:fix": "npm run lint -- --fix"
+    },
+    "dependencies": {
+        "@types/next": "^9.0.0",
+        "@types/react": "^16.9.46",
+        "@zeit/next-typescript": "^1.1.1",
+        "husky": "^4.2.5",
+        "next": "^9.5.2",
+        "prettier": "^2.0.5",
+        "pretty-quick": "^2.0.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
+    },
+    "devDependencies": {
+        "@types/node": "^14.6.0",
+        "@typescript-eslint/eslint-plugin": "^3.9.1",
+        "@typescript-eslint/parser": "^3.9.1",
+        "eslint": "^7.7.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.6",
+        "eslint-plugin-react-hooks": "^4.1.0",
+        "typescript": "^3.9.7"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged && npm run lint:fix"
+        }
+    }
 }
