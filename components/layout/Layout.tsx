@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import PageHeader from './PageHeader';
 import PageContent from './PageContent';
+import Title from './Title';
 
 interface ILayoutProps {
     title: string;
@@ -23,7 +24,9 @@ const Layout: React.FC<ILayoutProps> = ({ title, description, children }) => {
                 <meta name="Description" content={description} />
             </Head>
             <PageHeader>
-                <h1>Chuck Norris Image Macros</h1>
+                <Title>
+                    <h1>Chuck Norris Image Macros</h1>
+                </Title>
             </PageHeader>
             <PageContent>{children}</PageContent>
         </>

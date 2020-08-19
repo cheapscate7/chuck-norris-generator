@@ -10,6 +10,7 @@ STYLES
  */
     :root {
       font-size: 12pt;
+      font-family: 'Roboto Slab', serif;
       @media (max-width: 425px) {
           font-size: 10pt;
         }
