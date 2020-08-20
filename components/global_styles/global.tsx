@@ -39,6 +39,11 @@ STYLES
           font-size: ${theme.fontSizes.large};
       `};
     }
+    
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 `;
 
 export default GlobalStyle;

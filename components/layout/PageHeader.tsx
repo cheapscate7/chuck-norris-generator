@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { rgba } from 'polished';
 
 const PageHeader = styled.nav`
     padding: 0.2em 0.4em;
@@ -6,7 +7,7 @@ const PageHeader = styled.nav`
     justify-content: space-between;
     align-items: center;
     ${({ theme }) => css`
-        background-color: ${theme.colors.highlight_1};
+        background-color: ${rgba(theme.colors.highlight_1, 0.9)};
         color: ${theme.colors.coloured_button_foreground};
     `};
 

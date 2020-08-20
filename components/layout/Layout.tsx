@@ -5,6 +5,7 @@ import PageContent from './PageContent';
 import Title from './Title';
 import Navigation from './Navigation';
 import NavigationItem from './NavigationItem';
+import Link from 'next/link';
 
 interface ILayoutProps {
     title: string;
@@ -30,8 +31,8 @@ const Layout: React.FC<ILayoutProps> = ({ title, description, children }) => {
                     <h1>Chuck Norris Image Macros</h1>
                 </Title>
                 <Navigation>
-                    <NavigationItem>Home</NavigationItem>
-                    <NavigationItem>Help</NavigationItem>
+                    <NavigationItem linkTo={'/'}>Home</NavigationItem>
+                    <NavigationItem linkTo={'/help'}>Help</NavigationItem>
                 </Navigation>
             </PageHeader>
             <PageContent>{children}</PageContent>
