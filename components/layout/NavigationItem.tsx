@@ -7,6 +7,12 @@ interface INavigationItemProps {
     linkTo: string;
 }
 
+/**
+ * A link to a single page. Found in the page header
+ * @param linkTo    relative path of the page to be linked to
+ * @param children
+ * @constructor
+ */
 const NavigationItem: React.FC<INavigationItemProps> = ({
     linkTo,
     children,
