@@ -15,6 +15,10 @@ const app = ({ Component, pageProps }) => {
                 />
                 <link rel="shortcut icon" href="/icon-16.webp" />
                 <meta name="theme-color" content="#ffffff" />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+                    rel="stylesheet"
+                />
             </Head>
             <AppBody>
                 <Component {...pageProps} />

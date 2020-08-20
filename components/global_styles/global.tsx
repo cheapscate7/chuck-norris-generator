@@ -10,6 +10,7 @@ STYLES
  */
     :root {
       font-size: 12pt;
+      font-family: 'Roboto Slab', serif;
       @media (max-width: 425px) {
           font-size: 10pt;
         }
@@ -28,6 +29,7 @@ STYLES
         transition: background-color 0.2s ease-in-out;
         ${({ theme }) => css`
             background-color: ${theme.colors.background};
+            color: ${theme.colors.foreground};
         `};
     }
     
@@ -36,6 +38,11 @@ STYLES
       ${({ theme }) => css`
           font-size: ${theme.fontSizes.large};
       `};
+    }
+    
+    a {
+        color: inherit;
+        text-decoration: none;
     }
 `;
 
