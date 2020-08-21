@@ -5,15 +5,18 @@ const UnorderedListItem = styled.li`
     max-height: 100vh;
     margin: 0 1em;
     display: flex;
+    justify-content: center;
+    align-items: center;
     ${({ theme }) => css`
         border-bottom: 1px solid ${theme.colors.foreground};
     `};
-    a,
+
+    > a,
     button {
         box-sizing: border-box;
         width: 100%;
         flex-grow: 1;
-        padding: 1em;
+        padding: ${(props) => (props.active ? '1em' : '0.5em')} 1em;
         transition: 0.2s ease;
         &:focus,
         :hover {

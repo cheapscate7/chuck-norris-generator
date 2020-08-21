@@ -14,16 +14,19 @@ interface IJokesListItemProps {
 const JokesListItem: React.FC<IJokesListItemProps> = ({ joke }) => {
     const selectedJokeDispatch = useSelectedJokeDispatch();
     const selectedJokeState = useSelectedJokeState();
+    const selected = selectedJokeState.selectedJoke.id === joke.id;
+
     const handleClick = () => {
-        selectedJokeState.selectedJoke.id === joke.id
+        selected
             ? selectedJokeDispatch(selectJokeActions.reset())
             : selectedJokeDispatch(selectJokeActions.setSelectedJoke(joke));
     };
 
     return (
-        <UnorderedListItem>
+        <UnorderedListItem active={selected}>
             <button onClick={handleClick}>
                 <JokeListTitle>{joke.joke}</JokeListTitle>
+                <p>categories: {joke.categories.map((category) => category)}</p>
             </button>
         </UnorderedListItem>
     );
