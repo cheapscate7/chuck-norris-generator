@@ -30,5 +30,9 @@ declare interface Theme {
 declare interface IJoke {
     id: number;
     joke: string;
-    categorties: string[];
+    categories: string[];
+}
+
+declare interface IWithJokeSelectState {
+    selectedJoke: IJoke;
 }

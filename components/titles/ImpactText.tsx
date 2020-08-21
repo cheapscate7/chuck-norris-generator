@@ -6,6 +6,7 @@ const ImpactText = styled.h3`
     font-size: 3rem;
     font-family: Impact, sans-serif;
     text-align: center;
+    margin: auto 0;
 `;
 
 export default ImpactText;

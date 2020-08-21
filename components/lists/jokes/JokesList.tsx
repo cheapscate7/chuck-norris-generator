@@ -12,8 +12,8 @@ const JokesList: React.FC<IJokesListprops> = ({ items }) => {
     return (
         <UnorderedList>
             {items &&
-                items.map((item) => (
-                    <JokesListItem key={item.id}>{item.joke}</JokesListItem>
+                items.map((item, key) => (
+                    <JokesListItem key={`joke_${item.id}_${key}`} joke={item} />
                 ))}
         </UnorderedList>
     );
