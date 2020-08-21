@@ -1,11 +1,12 @@
 import UnorderedListItem from '../UnorderedListItem';
 import React from 'react';
-import JokeListTitle from '../../titles/JokeListTitle';
+import JokeListItemTitle from '../../titles/JokeListItemTitle';
 import {
     selectJokeActions,
     useSelectedJokeDispatch,
     useSelectedJokeState,
 } from '../../../lib/withJokeSelect';
+import ConvertQuotes from '../../../lib/helpers/strings';
 
 interface IJokesListItemProps {
     joke: IJoke;
@@ -25,8 +26,21 @@ const JokesListItem: React.FC<IJokesListItemProps> = ({ joke }) => {
     return (
         <UnorderedListItem active={selected}>
             <button onClick={handleClick}>
-                <JokeListTitle>{joke.joke}</JokeListTitle>
-                <p>categories: {joke.categories.map((category) => category)}</p>
+                <JokeListItemTitle>
+                    {ConvertQuotes(joke.joke)}
+                </JokeListItemTitle>
+                <p>
+                    Categories:{' '}
+                    {joke.categories.map((category, index) => (
+                        <span
+                            key={`joke_${joke.id}_${index}`}
+                            className={'italic'}
+                        >
+                            {' '}
+                            {category}{' '}
+                        </span>
+                    ))}
+                </p>
             </button>
         </UnorderedListItem>
     );

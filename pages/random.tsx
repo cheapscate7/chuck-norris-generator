@@ -5,6 +5,8 @@ import ApplicationContainer from '../components/containers/ApplicationContainer'
 import JokesList from '../components/lists/jokes/JokesList';
 import MemeContainer from '../components/containers/MemeContainer';
 import { SelectedJokeProvider } from '../lib/withJokeSelect';
+import JokesListContainer from '../components/containers/JokesListContainer';
+import React from 'react';
 
 const pageTitle = 'Random';
 const pageDescription = 'Find Random Chuck Norris Memes';
@@ -18,7 +20,7 @@ const RandomPage: NextPage<IRandomPageProps> = ({ jokes, success }) => (
     <Layout title={pageTitle} description={pageDescription}>
         <ApplicationContainer>
             <SelectedJokeProvider>
-                <JokesList items={jokes} />
+                <JokesListContainer jokes={jokes} title={'Random'} />
                 <MemeContainer />
             </SelectedJokeProvider>
         </ApplicationContainer>

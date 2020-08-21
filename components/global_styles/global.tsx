@@ -50,6 +50,14 @@ STYLES
       background-color: inherit;
       cursor: pointer;
     }
+    p {
+      .italic {
+        font-style: italic;
+        ${({ theme }) => css`
+            color: ${theme.colors.highlight_1};
+        `};
+      }
+    }
 `;
 
 export default GlobalStyle;

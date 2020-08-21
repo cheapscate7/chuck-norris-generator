@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 import ImpactText from '../titles/ImpactText';
 import { useSelectedJokeState } from '../../lib/withJokeSelect';
+import ConvertQuotes from '../../lib/helpers/strings';
 
 const MemeContainer = () => {
     const selectedJokeState = useSelectedJokeState();
     return (
         <Container>
-            <ImpactText>{selectedJokeState.selectedJoke.joke}</ImpactText>
+            <ImpactText>
+                {ConvertQuotes(selectedJokeState.selectedJoke.joke)}
+            </ImpactText>
         </Container>
     );
 };

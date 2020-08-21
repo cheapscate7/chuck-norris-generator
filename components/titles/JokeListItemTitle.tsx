@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const JokeListTitle = styled.h3`
+const JokeListItemTitle = styled.h3`
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -10,4 +10,4 @@ const JokeListTitle = styled.h3`
     `};
 `;
 
-export default JokeListTitle;
+export default JokeListItemTitle;
