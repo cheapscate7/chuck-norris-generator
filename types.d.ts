@@ -26,3 +26,9 @@ declare interface Theme {
     };
     shadows?: string[];
 }
+
+declare interface IJoke {
+    id: number;
+    joke: string;
+    categorties: string[];
+}
