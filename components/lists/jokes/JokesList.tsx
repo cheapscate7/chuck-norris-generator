@@ -2,6 +2,7 @@ import React from 'react';
 import UnorderedList from '../UnorderedList';
 import UnorderedListItem from '../UnorderedListItem';
 import Link from 'next/link';
+import JokesListItem from './JokesListItem';
 
 interface IJokesListprops {
     items: IJoke[];
@@ -12,9 +13,7 @@ const JokesList: React.FC<IJokesListprops> = ({ items }) => {
         <UnorderedList>
             {items &&
                 items.map((item) => (
-                    <UnorderedListItem key={item.id}>
-                        {item.joke}
-                    </UnorderedListItem>
+                    <JokesListItem key={item.id}>{item.joke}</JokesListItem>
                 ))}
         </UnorderedList>
     );
