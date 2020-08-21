@@ -32,7 +32,6 @@ const Layout: React.FC<ILayoutProps> = ({ title, description, children }) => {
                 </Title>
                 <Navigation>
                     <NavigationItem linkTo={'/'}>Home</NavigationItem>
-                    <NavigationItem linkTo={'/help'}>Help</NavigationItem>
                 </Navigation>
             </PageHeader>
             <PageContent>{children}</PageContent>
