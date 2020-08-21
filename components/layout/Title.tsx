@@ -8,7 +8,7 @@ import styled from 'styled-components';
 const Title: React.FC = ({ children }) => {
     return (
         <Container>
-            <img src={'/icon-64.webp'} />
+            <Icon src={'/icon-64.webp'} />
             {children}
         </Container>
     );
@@ -16,7 +16,13 @@ const Title: React.FC = ({ children }) => {
 
 const Container = styled.div`
     display: flex;
+    align-items: center;
     gap: 0.4em;
 `;
 
 export default Title;
+
+const Icon = styled.img`
+    width: 64px;
+    height: 64px;
+`;
