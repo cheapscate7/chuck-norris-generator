@@ -3,6 +3,7 @@ import Layout from '../components/layout/Layout';
 import MenuList from '../components/lists/menu/MenuList';
 import ApplicationContainer from '../components/containers/ApplicationContainer';
 import JokesList from '../components/lists/jokes/JokesList';
+import MemeContainer from '../components/containers/MemeContainer';
 
 const pageTitle = 'Random';
 const pageDescription = 'Find Random Chuck Norris Memes';
@@ -16,7 +17,7 @@ const RandomPage: NextPage<IRandomPageProps> = ({ jokes, success }) => (
     <Layout title={pageTitle} description={pageDescription}>
         <ApplicationContainer>
             <JokesList items={jokes}></JokesList>
-            <div></div>
+            <MemeContainer></MemeContainer>
         </ApplicationContainer>
     </Layout>
 );
