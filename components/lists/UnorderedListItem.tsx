@@ -8,7 +8,8 @@ const UnorderedListItem = styled.li`
     ${({ theme }) => css`
         border-bottom: 1px solid ${theme.colors.foreground};
     `};
-    a {
+    a,
+    button {
         box-sizing: border-box;
         width: 100%;
         flex-grow: 1;

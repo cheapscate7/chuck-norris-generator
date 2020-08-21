@@ -1,27 +1,15 @@
-import styled, { css } from 'styled-components';
 import UnorderedListItem from '../UnorderedListItem';
 import React from 'react';
-
-interface IJokesListItemProps {}
+import JokeListTitle from '../../titles/JokeListTitle';
 
 const JokesListItem: React.FC = ({ children }) => {
     return (
         <UnorderedListItem>
-            <a>
-                <Title>{children}</Title>
-            </a>
+            <button>
+                <JokeListTitle>{children}</JokeListTitle>
+            </button>
         </UnorderedListItem>
     );
 };
 
 export default JokesListItem;
-
-const Title = styled.h3`
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    ${({ theme }) => css`
-        font-size: ${theme.fontSizes.small};
-    `};
-`;

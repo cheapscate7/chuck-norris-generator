@@ -16,8 +16,8 @@ interface IRandomPageProps {
 const RandomPage: NextPage<IRandomPageProps> = ({ jokes, success }) => (
     <Layout title={pageTitle} description={pageDescription}>
         <ApplicationContainer>
-            <JokesList items={jokes}></JokesList>
-            <MemeContainer></MemeContainer>
+            <JokesList items={jokes} />
+            <MemeContainer />
         </ApplicationContainer>
     </Layout>
 );

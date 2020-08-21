@@ -44,6 +44,12 @@ STYLES
         color: inherit;
         text-decoration: none;
     }
+    
+    button {
+      border: 0;
+      background-color: inherit;
+      cursor: pointer;
+    }
 `;
 
 export default GlobalStyle;
