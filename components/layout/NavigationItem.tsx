@@ -22,7 +22,7 @@ const NavigationItem: React.FC<INavigationItemProps> = ({
     return (
         <NavigationItemContainer>
             <Link href={linkTo}>
-                <a className={isActive ? 'active' : ''}>{children}</a>
+                <a className={isActive && 'active'}>{children}</a>
             </Link>
         </NavigationItemContainer>
     );
