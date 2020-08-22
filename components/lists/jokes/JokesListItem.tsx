@@ -29,21 +29,29 @@ const JokesListItem: React.FC<IJokesListItemProps> = ({ joke }) => {
                 <JokeListItemTitle>
                     {ConvertQuotes(joke.joke)}
                 </JokeListItemTitle>
-                <p>
-                    Categories:{' '}
-                    {joke.categories.map((category, index) => (
-                        <span
-                            key={`joke_${joke.id}_${index}`}
-                            className={'italic'}
-                        >
-                            {' '}
-                            {category}{' '}
-                        </span>
-                    ))}
-                </p>
+                <Categories categories={joke.categories} joke_id={joke.id} />
             </button>
         </UnorderedListItem>
     );
 };
 
 export default JokesListItem;
+
+interface ICategoriesProps {
+    categories: string[];
+    joke_id: number;
+}
+
+const Categories: React.FC<ICategoriesProps> = ({ categories, joke_id }) => {
+    return (
+        <p>
+            Categories:{' '}
+            {categories.map((category, index) => (
+                <span key={`joke_${joke_id}_${index}`} className={'italic'}>
+                    {' '}
+                    {category}{' '}
+                </span>
+            ))}
+        </p>
+    );
+};
