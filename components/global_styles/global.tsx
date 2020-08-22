@@ -44,6 +44,20 @@ STYLES
         color: inherit;
         text-decoration: none;
     }
+    
+    button {
+      border: 0;
+      background-color: inherit;
+      cursor: pointer;
+    }
+    p {
+      .italic {
+        font-style: italic;
+        ${({ theme }) => css`
+            color: ${theme.colors.highlight_1};
+        `};
+      }
+    }
 `;
 
 export default GlobalStyle;

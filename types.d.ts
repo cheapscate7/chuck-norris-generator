@@ -26,3 +26,13 @@ declare interface Theme {
     };
     shadows?: string[];
 }
+
+declare interface IJoke {
+    id: number;
+    joke: string;
+    categories: string[];
+}
+
+declare interface IWithJokeSelectState {
+    selectedJoke: IJoke;
+}

@@ -17,14 +17,15 @@ const IndexPage: NextPage = () => (
                 <h3>How it works</h3>
                 <p>
                     To view 10 random Chuck Norris memes, go to{' '}
-                    <span>random</span>
+                    <span className={'italic'}>random</span>
                 </p>
                 <p>
                     If you like a meme, click the star icon to save it to your
                     favourites
                 </p>
                 <p>
-                    To view your favourites, click on <span>favourites</span>
+                    To view your favourites, click on{' '}
+                    <span className={'italic'}>favourites</span>
                 </p>
                 <p>
                     If you want to add random memes directly to your favourites,

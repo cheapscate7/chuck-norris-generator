@@ -18,7 +18,7 @@ const Theme: Theme = {
     },
     fontSizes: {
         tiny: '0.5rem',
-        small: '1.2rem',
+        small: '1rem',
         medium: '2rem',
         large: '2.5rem',
         huge: '3rem',
