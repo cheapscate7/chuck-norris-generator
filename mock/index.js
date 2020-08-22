@@ -7,15 +7,22 @@ const port = 7777;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const readFavourites = () => {
+    let rawdata = fs.readFileSync('favourites.json');
+    return JSON.parse(rawdata);
+};
+
+const writeFavourites = (data) => {
+    fs.writeFileSync('favourites.json', JSON.stringify(data));
+};
+
 app.route('/favourites')
     .get((req, res) => {
-        let rawdata = fs.readFileSync('favourites.json');
-        let favourites = JSON.parse(rawdata);
+        let favourites = readFavourites();
         res.send(favourites);
     })
     .post((req, res) => {
-        let rawdata = fs.readFileSync('favourites.json');
-        let favourites = JSON.parse(rawdata);
+        let favourites = readFavourites();
         let response = {
             success: false,
             message: '',
@@ -34,8 +41,7 @@ app.route('/favourites')
                 response.message = 'already exists';
             } else {
                 favourites.push(req.body);
-                const new_struct = JSON.stringify(favourites);
-                fs.writeFileSync('favourites.json', new_struct);
+                writeFavourites(favourites);
                 response.success = true;
                 response.message = 'favourite saved';
             }
@@ -45,12 +51,14 @@ app.route('/favourites')
 
 app.route('/favourites/:id').delete((req, res) => {
     let favourite_id = req.params.id;
-    let rawdata = fs.readFileSync('favourites.json');
-    let favourites = JSON.parse(rawdata);
+    let favourites = readFavourites();
+
     const new_arr = favourites.filter((favourite) => {
         return favourite.id !== parseInt(favourite_id, 10);
     });
-    fs.writeFileSync('favourites.json', JSON.stringify(new_arr));
+
+    writeFavourites(new_arr);
+
     res.send({
         success: true,
         message: 'favourite deleted',
