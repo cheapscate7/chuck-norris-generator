@@ -2,34 +2,21 @@ import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { getRandomJoke } from '../../lib/jokes';
+import {
+    favouritesActions,
+    useFavouritesDispatch,
+} from '../../lib/withFavourites';
 
 interface IPlayPauseButtonProps {
     isRunning: boolean;
+    callback: any;
 }
 
-const PlayPauseButton: React.FC<IPlayPauseButtonProps> = ({}) => {
-    const [isRunning, setIsRunning] = useState(false);
-
-    const handleClick = () => {
-        setIsRunning(!isRunning);
-    };
-
-    useEffect(() => {
-        let repeater = null;
-        if (isRunning) {
-            repeater = setInterval(() => {
-                getRandomJoke();
-                console.log('i am called');
-            }, 5000);
-        } else if (!isRunning) {
-            clearInterval(repeater);
-        }
-        return () => clearInterval(repeater);
-    }, [isRunning]);
-
-    return (
-        <Button onClick={handleClick}>{isRunning ? 'pause' : 'play'}</Button>
-    );
+const PlayPauseButton: React.FC<IPlayPauseButtonProps> = ({
+    callback,
+    isRunning,
+}) => {
+    return <Button onClick={callback}>{isRunning ? 'pause' : 'play'}</Button>;
 };
 
 export default PlayPauseButton;

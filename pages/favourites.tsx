@@ -5,6 +5,7 @@ import MemeContainer from '../components/containers/MemeContainer';
 import ApplicationContainer from '../components/containers/ApplicationContainer';
 import React from 'react';
 import FavouritesListContainer from '../components/containers/FavouritesListContainer';
+import { FavouritesProvider } from '../lib/withFavourites';
 
 const pageTitle = 'Home';
 const pageDescription = 'View your favourite Chuck Norris memes';
@@ -17,13 +18,15 @@ interface IFavouritesPageProps {
 const FavouritesPage: NextPage<IFavouritesPageProps> = ({ favourites }) => (
     <Layout title={pageTitle} description={pageDescription}>
         <ApplicationContainer>
-            <SelectedJokeProvider>
-                <FavouritesListContainer
-                    jokes={favourites}
-                    title={'Favourites'}
-                />
-                <MemeContainer />
-            </SelectedJokeProvider>
+            <FavouritesProvider>
+                <SelectedJokeProvider>
+                    <FavouritesListContainer
+                        jokes={favourites}
+                        title={'Favourites'}
+                    />
+                    <MemeContainer />
+                </SelectedJokeProvider>
+            </FavouritesProvider>
         </ApplicationContainer>
     </Layout>
 );

@@ -11,7 +11,7 @@ enum Actions {
     StateCleared,
 }
 
-export const selectJokeActions = {
+export const favouritesActions = {
     reset() {
         return {
             type: Actions.StateCleared,
