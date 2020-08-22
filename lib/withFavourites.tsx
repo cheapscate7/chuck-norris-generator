@@ -70,10 +70,21 @@ const FavouritesStateContext = React.createContext<
 >(initialState);
 const FavouritesDispatchContext = React.createContext(null);
 
-export const FavouritesProvider: React.FC = ({ children }) => {
+interface IFavouritesProviderProps {
+    favourites?: IJoke[];
+}
+export const FavouritesProvider: React.FC<IFavouritesProviderProps> = ({
+    children,
+    favourites,
+}) => {
+    const initial_state = favourites
+        ? {
+              favourites: initialState.favourites.concat(favourites),
+          }
+        : initialState;
     const [favouritesState, favouritesDispatch] = useReducer(
         reducer,
-        initialState
+        initial_state
     );
 
     return (

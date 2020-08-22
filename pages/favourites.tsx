@@ -18,12 +18,9 @@ interface IFavouritesPageProps {
 const FavouritesPage: NextPage<IFavouritesPageProps> = ({ favourites }) => (
     <Layout title={pageTitle} description={pageDescription}>
         <ApplicationContainer>
-            <FavouritesProvider>
+            <FavouritesProvider favourites={favourites}>
                 <SelectedJokeProvider>
-                    <FavouritesListContainer
-                        jokes={favourites}
-                        title={'Favourites'}
-                    />
+                    <FavouritesListContainer title={'Favourites'} />
                     <MemeContainer />
                 </SelectedJokeProvider>
             </FavouritesProvider>
@@ -35,9 +32,10 @@ FavouritesPage.getInitialProps = async () => {
     return await fetch('http://localhost:7777/favourites')
         .then((resp) => resp.json())
         .then((result) => {
+            console.log(result);
             return {
                 favourites: result['data'],
-                success: true,
+                success: result['success'],
             };
         });
 };

@@ -12,12 +12,11 @@ import { addJokeToFavourites, getRandomJoke } from '../../lib/jokes';
 
 interface IFavouritesListContainerProps {
     title: string;
-    jokes: IJoke[];
+    // jokes: IJoke[];
 }
 
 const FavouritesListContainer: React.FC<IFavouritesListContainerProps> = ({
     title,
-    jokes,
 }) => {
     const [isRunning, setIsRunning] = useState(false);
     const favouritesDispatch = useFavouritesDispatch();
