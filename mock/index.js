@@ -2,10 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
+const cors = require('cors');
 const port = 7777;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 const readFavourites = () => {
     let rawdata = fs.readFileSync('favourites.json');
@@ -19,7 +21,10 @@ const writeFavourites = (data) => {
 app.route('/favourites')
     .get((req, res) => {
         let favourites = readFavourites();
-        res.send(favourites);
+        res.send({
+            data: favourites,
+            success: true,
+        });
     })
     .post((req, res) => {
         let favourites = readFavourites();

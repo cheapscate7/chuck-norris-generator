@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import JokesList from '../lists/jokes/JokesList';
 import JokesListTitle from '../titles/JokesListTitle';
+import PlayPauseButton from '../buttons/PlayPauseButton';
 
-interface IJokesListContainerProps {
+interface IFavouritesListContainerProps {
     title: string;
     jokes: IJoke[];
 }
 
-const JokesListContainer: React.FC<IJokesListContainerProps> = ({
+const FavouritesListContainer: React.FC<IFavouritesListContainerProps> = ({
     title,
     jokes,
 }) => {
@@ -18,11 +19,12 @@ const JokesListContainer: React.FC<IJokesListContainerProps> = ({
                 <h2>{title}</h2>
             </JokesListTitle>
             <JokesList items={jokes} />
+            <PlayPauseButton isRunning={false} />
         </Container>
     );
 };
 
-export default JokesListContainer;
+export default FavouritesListContainer;
 
 const Container = styled.article`
     height: 100%;
