@@ -10,7 +10,7 @@ const pageDescription =
 const IndexPage: NextPage = () => (
     <Layout title={pageTitle} description={pageDescription}>
         <ApplicationContainer>
-            <MenuList></MenuList>
+            <MenuList />
             <div>
                 <h2>Welcome</h2>
                 <p>This is the Chuck Norris image viewer</p>

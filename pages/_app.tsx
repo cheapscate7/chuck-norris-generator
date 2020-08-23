@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
+import { ToastProvider } from 'react-toast-notifications';
 import GlobalStyle from '../components/global_styles/global';
 import Theme from '../themes/Theme';
 
@@ -21,7 +22,9 @@ const app = ({ Component, pageProps }) => {
                 />
             </Head>
             <AppBody>
-                <Component {...pageProps} />
+                <ToastProvider autoDismissTimeout={2500}>
+                    <Component {...pageProps} />
+                </ToastProvider>
             </AppBody>
         </React.Fragment>
     );
