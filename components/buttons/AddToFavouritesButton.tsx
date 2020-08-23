@@ -30,10 +30,10 @@ const AddToFavouritesButton: React.FC = () => {
         const favouritesDispatch = useFavouritesDispatch();
         const hidden = !selectedJoke.id;
         const handleAddToFavourites = () => {
-            addJokeToFavourites(selectedJoke).then((result) => {
+            addJokeToFavourites(false, selectedJoke.id).then((result) => {
                 if (result.success) {
                     favouritesDispatch(
-                        favouritesActions.addFavourite(selectedJoke)
+                        favouritesActions.addFavourite(result.joke)
                     );
                 }
             });

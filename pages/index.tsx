@@ -20,8 +20,8 @@ const IndexPage: NextPage = () => (
                     <span className={'italic'}>random</span>
                 </p>
                 <p>
-                    If you like a meme, click the star icon to save it to your
-                    favourites
+                    If you like a meme, click the "favourite" button to save it
+                    to your favourites
                 </p>
                 <p>
                     To view your favourites, click on{' '}
