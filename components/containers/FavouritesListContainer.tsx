@@ -50,7 +50,9 @@ const FavouritesListContainer: React.FC<IFavouritesListContainerProps> = ({
     return (
         <Container>
             <JokesListTitle>
-                <h2>{title}</h2>
+                <h2>
+                    {title} ({favouritesState.favourites.length})
+                </h2>
             </JokesListTitle>
             <JokesList items={favouritesState.favourites} />
             <PlayPauseButton callback={handlePlayPause} isRunning={isRunning} />
