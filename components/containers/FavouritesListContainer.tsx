@@ -8,11 +8,10 @@ import {
     useFavouritesDispatch,
     useFavouritesState,
 } from '../../lib/withFavourites';
-import { addJokeToFavourites, getRandomJoke } from '../../lib/jokes';
+import { addJokeToFavourites } from '../../lib/jokes';
 
 interface IFavouritesListContainerProps {
     title: string;
-    // jokes: IJoke[];
 }
 
 const FavouritesListContainer: React.FC<IFavouritesListContainerProps> = ({
@@ -26,24 +25,22 @@ const FavouritesListContainer: React.FC<IFavouritesListContainerProps> = ({
         setIsRunning(!isRunning);
     };
 
+    const repeaterCallback = () => {
+        addJokeToFavourites(true, null).then((resp) => {
+            if (resp.success) {
+                favouritesDispatch(favouritesActions.addFavourite(resp.joke));
+            } else if (resp.message === 'favourite_already_exists') {
+                repeaterCallback();
+            } else {
+                setIsRunning(false);
+            }
+        });
+    };
+
     useEffect(() => {
         let repeater = null;
         if (isRunning) {
-            repeater = setInterval(() => {
-                if (favouritesState.favourites.length < 10) {
-                    getRandomJoke().then((joke) => {
-                        addJokeToFavourites(joke).then((resp) => {
-                            if (resp.success) {
-                                favouritesDispatch(
-                                    favouritesActions.addFavourite(joke)
-                                );
-                            } else if (resp.message === 'maximum_reached') {
-                                setIsRunning(false);
-                            }
-                        });
-                    });
-                }
-            }, 5000);
+            repeater = setInterval(repeaterCallback, 5000);
         } else if (!isRunning) {
             clearInterval(repeater);
         }
