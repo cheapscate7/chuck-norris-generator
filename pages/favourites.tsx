@@ -1,12 +1,45 @@
 import { NextPage } from 'next';
 import Layout from '../components/layout/Layout';
-import MenuList from '../components/lists/menu/MenuList';
+import { SelectedJokeProvider } from '../lib/withJokeSelect';
+import MemeContainer from '../components/containers/MemeContainer';
+import ApplicationContainer from '../components/containers/ApplicationContainer';
+import React from 'react';
+import FavouritesListContainer from '../components/containers/FavouritesListContainer';
+import { FavouritesProvider } from '../lib/withFavourites';
+import DeleteFavouriteButton from '../components/buttons/DeleteFavouriteButton';
 
 const pageTitle = 'Home';
 const pageDescription = 'View your favourite Chuck Norris memes';
 
-const FavouritesPage: NextPage = () => (
-    <Layout title={pageTitle} description={pageDescription}></Layout>
+interface IFavouritesPageProps {
+    favourites: IJoke[];
+    success: boolean;
+}
+
+const FavouritesPage: NextPage<IFavouritesPageProps> = ({ favourites }) => (
+    <Layout title={pageTitle} description={pageDescription}>
+        <ApplicationContainer>
+            <FavouritesProvider favourites={favourites}>
+                <SelectedJokeProvider>
+                    <FavouritesListContainer title={'Favourites'} />
+                    <MemeContainer>
+                        <DeleteFavouriteButton />
+                    </MemeContainer>
+                </SelectedJokeProvider>
+            </FavouritesProvider>
+        </ApplicationContainer>
+    </Layout>
 );
+
+FavouritesPage.getInitialProps = async () => {
+    return await fetch('http://localhost:7777/favourites')
+        .then((resp) => resp.json())
+        .then((result) => {
+            return {
+                favourites: result['data'],
+                success: result['success'],
+            };
+        });
+};
 
 export default FavouritesPage;

@@ -51,11 +51,14 @@ const SelectedJokeStateContext = React.createContext<
 const SelectedJokeDispatchContext = React.createContext(null);
 
 export const SelectedJokeProvider: React.FC = ({ children }) => {
-    const [searchState, searchDispatch] = useReducer(reducer, initialState);
+    const [selectedJokeState, selectedJokeDispatch] = useReducer(
+        reducer,
+        initialState
+    );
 
     return (
-        <SelectedJokeStateContext.Provider value={searchState}>
-            <SelectedJokeDispatchContext.Provider value={searchDispatch}>
+        <SelectedJokeStateContext.Provider value={selectedJokeState}>
+            <SelectedJokeDispatchContext.Provider value={selectedJokeDispatch}>
                 {children}
             </SelectedJokeDispatchContext.Provider>
         </SelectedJokeStateContext.Provider>

@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import JokesList from '../lists/jokes/JokesList';
 import JokesListTitle from '../titles/JokesListTitle';
 
@@ -12,13 +13,19 @@ const JokesListContainer: React.FC<IJokesListContainerProps> = ({
     jokes,
 }) => {
     return (
-        <article>
+        <Container>
             <JokesListTitle>
                 <h2>{title}</h2>
             </JokesListTitle>
             <JokesList items={jokes} />
-        </article>
+        </Container>
     );
 };
 
 export default JokesListContainer;
+
+const Container = styled.article`
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+`;

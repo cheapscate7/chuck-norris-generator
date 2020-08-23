@@ -36,3 +36,7 @@ declare interface IJoke {
 declare interface IWithJokeSelectState {
     selectedJoke: IJoke;
 }
+
+declare interface IWithFavouritesState {
+    favourites: IJoke[];
+}

@@ -11,10 +11,13 @@ interface IJokesListprops {
 const JokesList: React.FC<IJokesListprops> = ({ items }) => {
     return (
         <UnorderedList>
-            {items &&
+            {items && items.length > 0 ? (
                 items.map((item, key) => (
                     <JokesListItem key={`joke_${item.id}_${key}`} joke={item} />
-                ))}
+                ))
+            ) : (
+                <li>Nothing here 🤔</li>
+            )}
         </UnorderedList>
     );
 };

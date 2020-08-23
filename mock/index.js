@@ -2,10 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
+const cors = require('cors');
 const port = 7777;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 const readFavourites = () => {
     let rawdata = fs.readFileSync('favourites.json');
@@ -19,7 +21,10 @@ const writeFavourites = (data) => {
 app.route('/favourites')
     .get((req, res) => {
         let favourites = readFavourites();
-        res.send(favourites);
+        res.send({
+            data: favourites,
+            success: true,
+        });
     })
     .post((req, res) => {
         let favourites = readFavourites();
@@ -29,21 +34,22 @@ app.route('/favourites')
         };
 
         if (favourites.length > 10) {
-            response.message = 'maximum favourites reached';
+            response.message = 'maximum_reached';
         } else {
             let is_found = false;
             favourites.forEach((favourite) => {
-                if (favourite.id === req.body.id) {
+                if (parseInt(favourite.id, 10) === parseInt(req.body.id, 10)) {
                     is_found = true;
                 }
             });
             if (is_found) {
-                response.message = 'already exists';
+                response.message = 'already_exists';
             } else {
-                favourites.push(req.body);
-                writeFavourites(favourites);
+                console.log(req.body);
+                const new_favourites = favourites.concat(req.body);
+                writeFavourites(new_favourites);
                 response.success = true;
-                response.message = 'favourite saved';
+                response.message = 'favourite_saved';
             }
         }
         res.send(response);
