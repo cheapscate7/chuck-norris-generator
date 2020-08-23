@@ -5,14 +5,18 @@ import ConvertQuotes from '../../lib/helpers/strings';
 
 const MemeContainer: React.FC = ({ children }) => {
     const selectedJokeState = useSelectedJokeState();
-    return (
-        <Container>
-            {children}
-            <ImpactText>
-                {ConvertQuotes(selectedJokeState.selectedJoke.joke)}
-            </ImpactText>
-        </Container>
-    );
+    const selectedJoke = selectedJokeState.selectedJoke;
+
+    if (selectedJoke.id) {
+        return (
+            <Container>
+                {children}
+                <ImpactText>{ConvertQuotes(selectedJoke.joke)}</ImpactText>
+            </Container>
+        );
+    } else {
+        return <Container />;
+    }
 };
 
 export default MemeContainer;
