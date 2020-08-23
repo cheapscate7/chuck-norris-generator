@@ -32,20 +32,18 @@ app.route('/favourites')
             success: false,
             message: '',
         };
-
-        if (favourites.length > 10) {
+        if (favourites.length + 1 > 10) {
+            console.log('maximum reached');
             response.message = 'maximum_reached';
         } else {
-            let is_found = false;
-            favourites.forEach((favourite) => {
-                if (parseInt(favourite.id, 10) === parseInt(req.body.id, 10)) {
-                    is_found = true;
-                }
-            });
+            const is_found = favourites.some(
+                (favourite) =>
+                    parseInt(favourite.id, 10) === parseInt(req.body.id, 10)
+            );
+
             if (is_found) {
                 response.message = 'already_exists';
             } else {
-                console.log(req.body);
                 const new_favourites = favourites.concat(req.body);
                 writeFavourites(new_favourites);
                 response.success = true;

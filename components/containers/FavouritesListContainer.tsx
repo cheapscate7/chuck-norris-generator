@@ -37,7 +37,10 @@ const FavouritesListContainer: React.FC<IFavouritesListContainerProps> = ({
                                 favouritesDispatch(
                                     favouritesActions.addFavourite(joke)
                                 );
-                            } else if (resp.message === 'maximum_reached') {
+                            } else if (
+                                !resp.success &&
+                                resp.message === 'maximum_reached'
+                            ) {
                                 setIsRunning(false);
                             }
                         });
