@@ -1,6 +1,7 @@
 import React from 'react';
+import FloatingButton from './FloatingButton';
 
-const FavouriteButton: React.FC = ({ joke }) => {
+const FavouriteButton: React.FC = ({}) => {
     const handleCLick = () => {};
-    return <button>Favourite</button>;
+    return <FloatingButton>Favourite</FloatingButton>;
 };

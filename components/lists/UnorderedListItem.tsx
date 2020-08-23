@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 
 const UnorderedListItem = styled.li`
-    max-height: 100vh;
     margin: 0 1em;
     display: flex;
     justify-content: center;

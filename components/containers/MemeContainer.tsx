@@ -3,10 +3,11 @@ import ImpactText from '../titles/ImpactText';
 import { useSelectedJokeState } from '../../lib/withJokeSelect';
 import ConvertQuotes from '../../lib/helpers/strings';
 
-const MemeContainer = () => {
+const MemeContainer: React.FC = ({ children }) => {
     const selectedJokeState = useSelectedJokeState();
     return (
         <Container>
+            {children}
             <ImpactText>
                 {ConvertQuotes(selectedJokeState.selectedJoke.joke)}
             </ImpactText>

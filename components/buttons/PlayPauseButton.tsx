@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
-import { getRandomJoke } from '../../lib/jokes';
-import {
-    favouritesActions,
-    useFavouritesDispatch,
-} from '../../lib/withFavourites';
 
 interface IPlayPauseButtonProps {
     isRunning: boolean;

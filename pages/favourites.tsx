@@ -6,6 +6,7 @@ import ApplicationContainer from '../components/containers/ApplicationContainer'
 import React from 'react';
 import FavouritesListContainer from '../components/containers/FavouritesListContainer';
 import { FavouritesProvider } from '../lib/withFavourites';
+import DeleteFavouriteButton from '../components/buttons/DeleteFavouriteButton';
 
 const pageTitle = 'Home';
 const pageDescription = 'View your favourite Chuck Norris memes';
@@ -21,7 +22,9 @@ const FavouritesPage: NextPage<IFavouritesPageProps> = ({ favourites }) => (
             <FavouritesProvider favourites={favourites}>
                 <SelectedJokeProvider>
                     <FavouritesListContainer title={'Favourites'} />
-                    <MemeContainer />
+                    <MemeContainer>
+                        <DeleteFavouriteButton />
+                    </MemeContainer>
                 </SelectedJokeProvider>
             </FavouritesProvider>
         </ApplicationContainer>
@@ -32,7 +35,6 @@ FavouritesPage.getInitialProps = async () => {
     return await fetch('http://localhost:7777/favourites')
         .then((resp) => resp.json())
         .then((result) => {
-            console.log(result);
             return {
                 favourites: result['data'],
                 success: result['success'],
