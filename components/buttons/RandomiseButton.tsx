@@ -1,26 +1,26 @@
 import React from 'react';
 import ListBottomActionButton from './ListBottomActionButton';
 
-interface IPlayPauseButtonProps {
-    isRunning: boolean;
+interface IRandomiseButtonProps {
+    listIsPopulated: boolean;
     callback: any;
 }
 
 /**
- * runs a callback and displays either the word pause or play
+ * runs a callback and displays either "randomise" or "get jokes
  * @param callback  the function to be run when the user clicks play or pause
  * @param isRunning     is the callback running
  * @constructor
  */
-const PlayPauseButton: React.FC<IPlayPauseButtonProps> = ({
+const RandomiseButton: React.FC<IRandomiseButtonProps> = ({
     callback,
-    isRunning,
+    listIsPopulated,
 }) => {
     return (
         <ListBottomActionButton onClick={callback}>
-            {isRunning ? 'pause' : 'play'}
+            {listIsPopulated ? 'Randomise' : 'Get Jokes'}
         </ListBottomActionButton>
     );
 };
 
-export default PlayPauseButton;
+export default RandomiseButton;
