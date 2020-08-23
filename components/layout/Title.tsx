@@ -9,7 +9,10 @@ import Icon from '../icons/Icon';
 const Title: React.FC = ({ children }) => {
     return (
         <Container>
-            <Icon src={'/icon-64.webp'} />
+            <Icon
+                alt={'Chuck norris website thumbnail'}
+                src={'/icon-64.webp'}
+            />
             {children}
         </Container>
     );

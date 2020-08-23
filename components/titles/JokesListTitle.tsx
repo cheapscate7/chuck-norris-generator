@@ -13,7 +13,7 @@ const JokesListTitle: React.FC = ({ children }) => {
     return (
         <Container>
             <Link href={'/'}>
-                <a>
+                <a aria-label={'Go back to the Home page'}>
                     <Arrow
                         direction={'left'}
                         match={'foreground'}
