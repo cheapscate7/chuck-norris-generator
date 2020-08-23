@@ -5,6 +5,8 @@ import MemeContainer from '../components/containers/MemeContainer';
 import { SelectedJokeProvider } from '../lib/withJokeSelect';
 import JokesListContainer from '../components/containers/JokesListContainer';
 import React from 'react';
+import AddToFavouritesButton from '../components/buttons/AddToFavouritesButton';
+import { FavouritesProvider } from '../lib/withFavourites';
 
 const pageTitle = 'Random';
 const pageDescription = 'Find Random Chuck Norris Memes';
@@ -15,13 +17,21 @@ interface IRandomPageProps {
     favourites: IJoke[];
 }
 
-const RandomPage: NextPage<IRandomPageProps> = ({ jokes, success }) => (
+const RandomPage: NextPage<IRandomPageProps> = ({
+    jokes,
+    success,
+    favourites,
+}) => (
     <Layout title={pageTitle} description={pageDescription}>
         <ApplicationContainer>
-            <SelectedJokeProvider>
-                <JokesListContainer jokes={jokes} title={'Random'} />
-                <MemeContainer />
-            </SelectedJokeProvider>
+            <FavouritesProvider favourites={favourites}>
+                <SelectedJokeProvider>
+                    <JokesListContainer jokes={jokes} title={'Random'} />
+                    <MemeContainer>
+                        <AddToFavouritesButton />
+                    </MemeContainer>
+                </SelectedJokeProvider>
+            </FavouritesProvider>
         </ApplicationContainer>
     </Layout>
 );

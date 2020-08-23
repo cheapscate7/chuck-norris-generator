@@ -23,7 +23,7 @@ const FavouritesPage: NextPage<IFavouritesPageProps> = ({ favourites }) => (
                 <SelectedJokeProvider>
                     <FavouritesListContainer title={'Favourites'} />
                     <MemeContainer>
-                        <DeleteFavouriteButton />
+                        <DeleteFavouriteButton>Delete</DeleteFavouriteButton>
                     </MemeContainer>
                 </SelectedJokeProvider>
             </FavouritesProvider>

@@ -11,7 +11,7 @@ import {
 } from '../../lib/withJokeSelect';
 import { deleteJokeFromFavourites } from '../../lib/jokes';
 
-const DeleteFavouriteButton: React.FC = ({}) => {
+const DeleteFavouriteButton: React.FC = ({ children }) => {
     const favouritesDispatch = useFavouritesDispatch();
     const selectedJokeState = useSelectedJokeState();
     const selectedJokeDispatch = useSelectedJokeDispatch();
@@ -31,7 +31,7 @@ const DeleteFavouriteButton: React.FC = ({}) => {
     };
     return (
         <FloatingButton onClick={handleCLick} hidden={hidden}>
-            Delete
+            {children}
         </FloatingButton>
     );
 };
