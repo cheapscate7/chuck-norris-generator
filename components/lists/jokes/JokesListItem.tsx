@@ -6,12 +6,18 @@ import {
     useSelectedJokeDispatch,
     useSelectedJokeState,
 } from '../../../lib/withJokeSelect';
-import ConvertQuotes from '../../../lib/helpers/strings';
 
 interface IJokesListItemProps {
     joke: IJoke;
 }
 
+/**
+ * displays a single joke or favourite and its categories
+ * on click, the joke is added to the selected joke state, if it is clicked again,
+ * it is removed from the selected joke state
+ * @param joke
+ * @constructor
+ */
 const JokesListItem: React.FC<IJokesListItemProps> = ({ joke }) => {
     const selectedJokeDispatch = useSelectedJokeDispatch();
     const selectedJokeState = useSelectedJokeState();
@@ -26,9 +32,7 @@ const JokesListItem: React.FC<IJokesListItemProps> = ({ joke }) => {
     return (
         <UnorderedListItem active={selected}>
             <button onClick={handleClick}>
-                <JokeListItemTitle>
-                    {ConvertQuotes(joke.joke)}
-                </JokeListItemTitle>
+                <JokeListItemTitle>{joke.joke}</JokeListItemTitle>
                 <Categories categories={joke.categories} joke_id={joke.id} />
             </button>
         </UnorderedListItem>

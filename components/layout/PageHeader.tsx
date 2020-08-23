@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 
+/**
+ * a nav bar that contains the site title and navigation links
+ */
 const PageHeader = styled.nav`
     padding: 0.2em 0.4em;
     display: flex;

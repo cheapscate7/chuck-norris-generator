@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 
+/**
+ * a generic list item for an unordered list
+ * used for displaying jokes and favourites
+ */
 const UnorderedListItem = styled.li`
     margin: 0 1em;
     display: flex;

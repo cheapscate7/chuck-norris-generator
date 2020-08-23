@@ -1,38 +1,22 @@
 [
     {
-        "id": 268,
-        "joke": "He who lives by the sword, dies by the sword. He who lives by Chuck Norris, dies by the roundhouse kick.",
+        "id": 23,
+        "joke": "Time waits for no man. Unless that man is Chuck Norris.",
         "categories": []
     },
     {
-        "id": 438,
-        "joke": "Chuck Norris likes his ice like he likes his skulls: crushed.",
-        "categories": []
-    },
-    { "id": 596, "joke": "Chuck Norris can drown a fish.", "categories": [] },
-    {
-        "id": 64,
-        "joke": "There are no races, only countries of people Chuck Norris has beaten to different shades of black and blue.",
+        "id": 389,
+        "joke": "Chuck Norris has banned rainbows from the state of North Dakota.",
         "categories": []
     },
     {
-        "id": 488,
-        "joke": "Chuck Norris doesn't pair program.",
+        "id": 4,
+        "joke": "If you ask Chuck Norris what time it is, he always answers \"Two seconds till\". After you ask \"Two seconds to what?\", he roundhouse kicks you in the face.",
+        "categories": []
+    },
+    {
+        "id": 525,
+        "joke": "Chuck Norris can retrieve anything from /dev/null.",
         "categories": ["nerdy"]
-    },
-    {
-        "id": 279,
-        "joke": "Chuck Norris does, in fact, live in a round house.",
-        "categories": []
-    },
-    {
-        "id": 57,
-        "joke": "Chuck Norris is ten feet tall, weighs two-tons, breathes fire, and could eat a hammer and take a shotgun blast standing.",
-        "categories": []
-    },
-    {
-        "id": 380,
-        "joke": "Chuck Norris does not follow fashion trends, they follow him. But then he turns around and kicks their ass. Nobody follows Chuck Norris.",
-        "categories": []
     }
 ]

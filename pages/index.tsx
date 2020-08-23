@@ -7,6 +7,12 @@ const pageTitle = 'Home';
 const pageDescription =
     'Find random Chuck Norris memes - save your favourites - the best place for Chuck Norris Lovers';
 
+/**
+ * INDEX PAGE
+ * has links to favourites and random
+ * has a description on how to use
+ * @constructor
+ */
 const IndexPage: NextPage = () => (
     <Layout title={pageTitle} description={pageDescription}>
         <ApplicationContainer>

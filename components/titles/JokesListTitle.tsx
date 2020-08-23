@@ -3,6 +3,12 @@ import Arrow from '../icons/Arrow';
 import React from 'react';
 import Link from 'next/link';
 
+/**
+ * The header for the list of jokes
+ * contains a link back to the main page
+ * @param children
+ * @constructor
+ */
 const JokesListTitle: React.FC = ({ children }) => {
     return (
         <Container>

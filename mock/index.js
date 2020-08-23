@@ -26,7 +26,9 @@ const findFavourite = (favourites, favourite_id) =>
 
 const fetchFavourite = async (favourites, isRandom, favourite_id) => {
     return await fetch(
-        `http://api.icndb.com/jokes/${isRandom ? 'random' : favourite_id}`
+        `http://api.icndb.com/jokes/${
+            isRandom ? 'random' : favourite_id
+        }?escape=javascript`
     )
         .then((r) => r.json())
         .then((response) => {

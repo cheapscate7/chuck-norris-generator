@@ -12,6 +12,12 @@ import {
 } from '../../lib/withJokeSelect';
 import { deleteJokeFromFavourites } from '../../lib/jokes';
 
+/**
+ * attempts to delete the selected joke from the selected joke then updates
+ * the selected joke context and alerts the user
+ * @param children
+ * @constructor
+ */
 const DeleteFavouriteButton: React.FC = ({ children }) => {
     const favouritesDispatch = useFavouritesDispatch();
     const selectedJokeState = useSelectedJokeState();

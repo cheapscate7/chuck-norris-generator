@@ -15,6 +15,14 @@ interface IFavouritesListContainerProps {
     title: string;
 }
 
+/**
+ * displays a list of favourited memes with a title and a button
+ * onclick, the button runs a setInterval callback which attempts to save the joke to favourites
+ * if that succeeds then the favourites context is updated.
+ *
+ * @param title the title of the list
+ * @constructor
+ */
 const FavouritesListContainer: React.FC<IFavouritesListContainerProps> = ({
     title,
 }) => {

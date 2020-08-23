@@ -10,6 +10,13 @@ import { useSelectedJokeState } from '../../lib/withJokeSelect';
 import { addJokeToFavourites } from '../../lib/jokes';
 import DeleteFavouriteButton from './DeleteFavouriteButton';
 
+/**
+ * attempts to add the selected meme to the backend then updates the selected joke state
+ * this also needs to be contained within a favourites reducer so that the button knows
+ * whether the meme it is related to is already in the favourites. If it is then
+ * <DeleteFavouriteButton> is shown
+ * @constructor
+ */
 const AddToFavouritesButton: React.FC = () => {
     const favouritesState = useFavouritesState();
     const selectedJokeState = useSelectedJokeState();

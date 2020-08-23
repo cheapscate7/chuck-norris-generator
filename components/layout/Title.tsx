@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Icon from '../icons/Icon';
 
 /**
  * Wrapper for the page title
@@ -14,15 +15,10 @@ const Title: React.FC = ({ children }) => {
     );
 };
 
+export default Title;
+
 const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 0.4em;
-`;
-
-export default Title;
-
-const Icon = styled.img`
-    width: 64px;
-    height: 64px;
 `;

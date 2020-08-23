@@ -1,5 +1,9 @@
 import React, { useReducer } from 'react';
 
+/**
+ * WITHJOKESELECT
+ * deals with any joke the user has currently selected on the favourites or random page
+ */
 export const initialState: IWithJokeSelectState = {
     selectedJoke: {
         id: null,

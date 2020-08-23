@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components';
 
+/**
+ * a generic button for adding and removing memes from the favourites list
+ */
 const FloatingButton = styled.button`
     position: relative;
     top: 0;

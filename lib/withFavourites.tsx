@@ -1,5 +1,10 @@
 import React, { useReducer } from 'react';
 
+/**
+ * WITHFAVOURITES
+ * this deals with every meme the user has saved in the backend
+ */
+
 export const initialState: IWithFavouritesState = {
     favourites: [],
 };
@@ -64,6 +69,10 @@ function reducer(
         return state;
     }
 }
+
+/**
+ * FAVOURITES CONTEXT
+ */
 
 const FavouritesStateContext = React.createContext<
     Partial<IWithFavouritesState>

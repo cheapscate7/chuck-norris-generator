@@ -13,15 +13,18 @@ const pageDescription = 'Find Random Chuck Norris Memes';
 
 interface IRandomPageProps {
     jokes: IJoke[];
-    success: boolean;
     favourites: IJoke[];
 }
 
-const RandomPage: NextPage<IRandomPageProps> = ({
-    jokes,
-    success,
-    favourites,
-}) => (
+/**
+ * 'RANDOM' page
+ * contains a list of random memes and a panel to display them
+ * memes can be added to favourites
+ * @param jokes
+ * @param favourites
+ * @constructor
+ */
+const RandomPage: NextPage<IRandomPageProps> = ({ jokes, favourites }) => (
     <Layout title={pageTitle} description={pageDescription}>
         <ApplicationContainer>
             <FavouritesProvider favourites={favourites}>
@@ -38,15 +41,13 @@ const RandomPage: NextPage<IRandomPageProps> = ({
 
 RandomPage.getInitialProps = async () => {
     const random_jokes = await fetch(
-        'http://api.icndb.com/jokes/random/10'
+        'http://api.icndb.com/jokes/random/10?escape=javascript'
     ).then((resp) => resp.json());
     const favourites = await fetch(
         'http://localhost:7777/favourites'
     ).then((resp) => resp.json());
     return {
         jokes: random_jokes['value'],
-        // success: result['type'] === 'success' && result['value'].length > 0
-        success: true,
         favourites,
     };
 };

@@ -8,6 +8,12 @@ interface IJokesListprops {
     items: IJoke[];
 }
 
+/**
+ * displays a list of jokes if there are any,
+ * else it tells the user there is nothing there
+ * @param items     the list of jokes or favourites to display
+ * @constructor
+ */
 const JokesList: React.FC<IJokesListprops> = ({ items }) => {
     return (
         <UnorderedList>

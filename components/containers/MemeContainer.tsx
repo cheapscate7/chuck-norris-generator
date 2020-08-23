@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 import ImpactText from '../titles/ImpactText';
 import { useSelectedJokeState } from '../../lib/withJokeSelect';
-import ConvertQuotes from '../../lib/helpers/strings';
 
+/**
+ * this displays a meme provided by the selected joke context
+ * the text is displayed using impact font
+ * can also render a button such as one for deleting or adding the displayed meme
+ * to the favourites
+ * @param children
+ * @constructor
+ */
 const MemeContainer: React.FC = ({ children }) => {
     const selectedJokeState = useSelectedJokeState();
     const selectedJoke = selectedJokeState.selectedJoke;
@@ -11,7 +18,7 @@ const MemeContainer: React.FC = ({ children }) => {
         return (
             <Container>
                 {children}
-                <ImpactText>{ConvertQuotes(selectedJoke.joke)}</ImpactText>
+                <ImpactText>{selectedJoke.joke}</ImpactText>
             </Container>
         );
     } else {

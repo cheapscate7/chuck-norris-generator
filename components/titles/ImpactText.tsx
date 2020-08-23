@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+/**
+ * The text used on the meme panel display
+ * (for that classic image macro look)
+ */
 const ImpactText = styled.h3`
     -webkit-text-stroke: 1px black;
     color: white;

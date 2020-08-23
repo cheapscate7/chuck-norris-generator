@@ -8,6 +8,14 @@ interface IJokesListContainerProps {
     jokes: IJoke[];
 }
 
+/**
+ * contains a list of random memes + a title
+ * unlike with the favourites list container, random jokes are prerendered so
+ * they need to be passed to this container instead of being placed in a context provider
+ * @param title     the name of the container
+ * @param jokes     the jokes to be displayed
+ * @constructor
+ */
 const JokesListContainer: React.FC<IJokesListContainerProps> = ({
     title,
     jokes,
