@@ -12,6 +12,7 @@ const FloatingButton = styled.button`
         color: ${theme.colors.coloured_button_foreground};
         font-size: ${theme.fontSizes.small};
     `};
+    display: ${(props) => (props.hidden ? 'none' : 'block')};
 `;
 
 export default FloatingButton;

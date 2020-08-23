@@ -11,19 +11,22 @@ const DeleteFavouriteButton: React.FC = ({}) => {
     const favouritesDispatch = useFavouritesDispatch();
     const selectedJokeState = useSelectedJokeState();
 
+    const selectedJoke = selectedJokeState.selectedJoke;
+    const hidden = !selectedJoke.id;
+
     const handleCLick = () => {
-        deleteJokeFromFavourites(selectedJokeState.selectedJoke.id).then(
-            (result) => {
-                result.success &&
-                    favouritesDispatch(
-                        favouritesActions.deleteFavourite(
-                            selectedJokeState.selectedJoke
-                        )
-                    );
-            }
-        );
+        deleteJokeFromFavourites(selectedJoke.id).then((result) => {
+            result.success &&
+                favouritesDispatch(
+                    favouritesActions.deleteFavourite(selectedJoke)
+                );
+        });
     };
-    return <FloatingButton onClick={handleCLick}>Delete</FloatingButton>;
+    return (
+        <FloatingButton onClick={handleCLick} hidden={hidden}>
+            Delete
+        </FloatingButton>
+    );
 };
 
 export default DeleteFavouriteButton;
