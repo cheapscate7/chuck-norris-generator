@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useToasts } from 'react-toast-notifications';
 import JokesList from '../lists/jokes/JokesList';
 import JokesListTitle from '../titles/JokesListTitle';
 import PlayPauseButton from '../buttons/PlayPauseButton';
@@ -20,6 +21,7 @@ const FavouritesListContainer: React.FC<IFavouritesListContainerProps> = ({
     const [isRunning, setIsRunning] = useState(false);
     const favouritesDispatch = useFavouritesDispatch();
     const favouritesState = useFavouritesState();
+    const { addToast } = useToasts();
 
     const handlePlayPause = () => {
         setIsRunning(!isRunning);
@@ -29,9 +31,17 @@ const FavouritesListContainer: React.FC<IFavouritesListContainerProps> = ({
         addJokeToFavourites(true, null).then((resp) => {
             if (resp.success) {
                 favouritesDispatch(favouritesActions.addFavourite(resp.joke));
+                addToast('Added to favourites', {
+                    appearance: 'success',
+                    autoDismiss: true,
+                });
             } else if (resp.message === 'favourite_already_exists') {
                 repeaterCallback();
             } else {
+                addToast('Maximum Favourites reached', {
+                    appearance: 'error',
+                    autoDismiss: true,
+                });
                 setIsRunning(false);
             }
         });
@@ -50,7 +60,9 @@ const FavouritesListContainer: React.FC<IFavouritesListContainerProps> = ({
     return (
         <Container>
             <JokesListTitle>
-                <h2>{title}</h2>
+                <h2>
+                    {title} ({favouritesState.favourites.length})
+                </h2>
             </JokesListTitle>
             <JokesList items={favouritesState.favourites} />
             <PlayPauseButton callback={handlePlayPause} isRunning={isRunning} />

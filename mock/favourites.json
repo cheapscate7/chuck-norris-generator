@@ -1,40 +1,5 @@
 [
     {
-        "id": 168,
-        "joke": "Chuck Norris is the only person in the world that can actually email a roundhouse kick.",
-        "categories": []
-    },
-    {
-        "id": 396,
-        "joke": "Only Chuck Norris can prevent forest fires.",
-        "categories": []
-    },
-    {
-        "id": 91,
-        "joke": "When taking the SAT, write &quot;Chuck Norris&quot; for every answer. You will score over 8000.",
-        "categories": []
-    },
-    {
-        "id": 588,
-        "joke": "Chuck Norris knows Victoria's secret.",
-        "categories": []
-    },
-    {
-        "id": 225,
-        "joke": "Chuck Norris is the reason why Waldo is hiding.",
-        "categories": []
-    },
-    {
-        "id": 217,
-        "joke": "Crime does not pay - unless you are an undertaker following Walker, Texas Ranger, on a routine patrol.",
-        "categories": []
-    },
-    {
-        "id": 19,
-        "joke": "In an average living room there are 1,242 objects Chuck Norris could use to kill you, including the room itself.",
-        "categories": []
-    },
-    {
         "id": 268,
         "joke": "He who lives by the sword, dies by the sword. He who lives by Chuck Norris, dies by the roundhouse kick.",
         "categories": []
@@ -44,5 +9,30 @@
         "joke": "Chuck Norris likes his ice like he likes his skulls: crushed.",
         "categories": []
     },
-    { "id": 596, "joke": "Chuck Norris can drown a fish.", "categories": [] }
+    { "id": 596, "joke": "Chuck Norris can drown a fish.", "categories": [] },
+    {
+        "id": 64,
+        "joke": "There are no races, only countries of people Chuck Norris has beaten to different shades of black and blue.",
+        "categories": []
+    },
+    {
+        "id": 488,
+        "joke": "Chuck Norris doesn't pair program.",
+        "categories": ["nerdy"]
+    },
+    {
+        "id": 279,
+        "joke": "Chuck Norris does, in fact, live in a round house.",
+        "categories": []
+    },
+    {
+        "id": 57,
+        "joke": "Chuck Norris is ten feet tall, weighs two-tons, breathes fire, and could eat a hammer and take a shotgun blast standing.",
+        "categories": []
+    },
+    {
+        "id": 380,
+        "joke": "Chuck Norris does not follow fashion trends, they follow him. But then he turns around and kicks their ass. Nobody follows Chuck Norris.",
+        "categories": []
+    }
 ]

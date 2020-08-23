@@ -1,4 +1,5 @@
 import React from 'react';
+import { useToasts } from 'react-toast-notifications';
 import FloatingButton from './FloatingButton';
 import {
     favouritesActions,
@@ -15,6 +16,7 @@ const DeleteFavouriteButton: React.FC = ({ children }) => {
     const favouritesDispatch = useFavouritesDispatch();
     const selectedJokeState = useSelectedJokeState();
     const selectedJokeDispatch = useSelectedJokeDispatch();
+    const { addToast } = useToasts();
 
     const selectedJoke = selectedJokeState.selectedJoke;
     const hidden = !selectedJoke.id;
@@ -26,6 +28,15 @@ const DeleteFavouriteButton: React.FC = ({ children }) => {
                     favouritesActions.deleteFavourite(selectedJoke)
                 );
                 selectedJokeDispatch(selectJokeActions.reset());
+                addToast('Successfully deleted', {
+                    appearance: 'success',
+                    autoDismiss: true,
+                });
+            } else {
+                addToast('Something went wrong', {
+                    appearance: 'error',
+                    autoDismiss: true,
+                });
             }
         });
     };
