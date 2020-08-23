@@ -7,6 +7,7 @@ import React from 'react';
 import FavouritesListContainer from '../components/containers/FavouritesListContainer';
 import { FavouritesProvider } from '../lib/withFavourites';
 import DeleteFavouriteButton from '../components/buttons/DeleteFavouriteButton';
+import Toast from '../components/toast/Toast';
 
 const pageTitle = 'Home';
 const pageDescription = 'View your favourite Chuck Norris memes';
@@ -19,6 +20,7 @@ interface IFavouritesPageProps {
 const FavouritesPage: NextPage<IFavouritesPageProps> = ({ favourites }) => (
     <Layout title={pageTitle} description={pageDescription}>
         <ApplicationContainer>
+            <Toast toast_list={['too many items']} />
             <FavouritesProvider favourites={favourites}>
                 <SelectedJokeProvider>
                     <FavouritesListContainer title={'Favourites'} />
