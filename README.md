@@ -14,3 +14,5 @@ favourites list <http://api.icndb.com/jokes/random/1> until the list has 10 item
 
 to get favourites to work, you must run `yarn start` in the `mock` directory. If you have foreman installed
 you can run `foreman start` to get both the frontend and the mock server running (<http://ddollar.github.io/foreman>)
+
+You can see some of my initial sketches in `/designs`
